@@ -1,4 +1,5 @@
-# generic built-in functions
+# # generic built-in functions
+# # variable that points to a list
 numbers = [45, 66, 12, 3, 99, 3.142, 42]
 print("min:", min(numbers), "max:", max(numbers))
 print("sum:", sum(numbers))
@@ -12,19 +13,22 @@ print("Dictionaries implement min, max and sum on the KEYS not the VALUES!")
 
 print("\n" + "#" * 50)
 
-# useful tuple operations
+# # useful tuple operations
 a = 'hello'
 b = 'goodbye'
 print(f"a: {a} \t b: {b}")
 
+# this is swapping over the values of the variables
 a, b = b, a
 
 print(f"a: {a} \t b: {b}")
 
 Gouda, Edam, Caithness = range(3)
 print(Gouda, Edam, Caithness)
+print(f'Gouda:{Gouda} \t Edam:{Edam} \t Caithness:{Caithness}')
 
 mytuple = 'a', 'b', 'c'
+# operator overloading - passing different operands
 another = mytuple * 4
 print(another)
 
@@ -34,11 +38,18 @@ print(type(thing))
 thing = ('Hello',)
 print(type(thing))
 
+# the commas make a tuple, not the ()
+thing = 'Hello',
+print(type(thing))
+
 print("\n" + "#" * 50)
 # Python Lists
 
 cheese = ['Cheddar', 'Stilton', 'Cornish Yarg']
+# index/subscript notation
 print(cheese[1])
+# numbers with -, count from the left
+# go to list position -1 and reassign this value with new value
 cheese[-1] = 'Red Leicester'
 print(cheese)
 
@@ -46,14 +57,22 @@ print("\n" + "#" * 50)
 
 # Tuple and List Slicing
 mytuple = ('eggs', 'bacon', 'spam', 'tea', 'beans')
+# slicing from 2 to 4, inclusive of 2 but not 4
+# upper bound is +1
 print(mytuple[2:4])
 # ('spam', 'tea')
 
 print(mytuple[-4])
 # bacon
+# changing tuple to a list using list CONSTRUCTOR
+# enables us to construct/build an object
+# take contents of tuple and construct a list from it
+# assign to variable
 mylist = list(mytuple)
+# no upper bound means it will run the whole list
 print(mylist[1:])
 # ['bacon', 'spam', 'tea', 'beans']
+# when only end value, will get number 0 and 1
 print(mylist[:2])
 # ['eggs', 'bacon']
 
@@ -62,6 +81,9 @@ cheese = ['Cheddar', 'Camembert', 'Brie', 'Stilton']
 print("\n")
 print(cheese)
 
+# del is a statement - delete
+# removing from value 1 to 2
+# cannot use with tuple as they are immutable
 del cheese[1:3]
 print(cheese)
 
@@ -69,10 +91,14 @@ print("\n" + "#" * 50)
 
 # Extended Iterable Unpacking
 
-food_and_drink = 'eggs', 'bacon', 'spam', 'tea'
+# tuple - separated by commas
+food_and_drink = 'eggs', 'bacon', 'spam', 'tea', 'coffee'
 # x, y, z = food_and_drink
 
-x, y, *z = food_and_drink
+# need to unpack all parts of tuple
+# can't do x,y,z bc 4 things in tuple
+# * means put everything else into this variable
+*x, y, z = food_and_drink
 print(f"x: {x} \t y:{y} \t z:{z}")
 
 t1 = 'cat', 'dog', 'python', 'mouse', 'camel'
@@ -93,6 +119,8 @@ print(cheese)
 cheese += ['Oke', 'Devon Blue']
 print(cheese)
 
+# have to pass in list to extend method
+# must be iterable
 cheese.extend(['Oke', 'Devon Blue'])
 print(cheese)
 
@@ -103,7 +131,11 @@ print(cheese)
 # anywhere
 cheese = ['Cheddar', 'Stilton', 'Cornish Yarg']
 print("New cheese list:", cheese)
+# use insert method to add stuff anywhere
+# insert at position 2 , 'Cornish Brie'
 cheese.insert(2, 'Cornish Brie')
+print(cheese)
+# or squeeze it into a position using this
 cheese[2:2] = ['Dairy Lea Triangles']
 print(cheese)
 
@@ -138,12 +170,15 @@ print("\n" + "#" * 50)
 cheese = ['Cornish Yarg', 'Oke', 'Edam', 'Stilton']
 print(f"Cheese before sorting: {cheese}")
 
+# sort() sorts alphabetically
 cheese.sort()
 print(f"Cheese after sorting: {cheese}")
 
+# sorts by length of string, lowest to highest
 cheese.sort(key=len)
 print(f"Cheese after sorting by length: {cheese}")
 
+# same but from highest to lowest using reverse=True
 cheese.sort(key=len, reverse=True)
 print(f"Cheese after sorting by length in reverse order: {cheese}")
 
@@ -165,8 +200,9 @@ print(cheese)
 edam_count = cheese.count('Edam')
 print(f"Edam appears {edam_count} time(s).")
 
+# .index - which position in list
 edam_index = cheese.index('Edam')
-print(f"Edam appears at opsition {edam_index}.")
+print(f"Edam appears at position {edam_index}.")
 
 # reverse the list in place
 print(f"Before reverse: {cheese}")

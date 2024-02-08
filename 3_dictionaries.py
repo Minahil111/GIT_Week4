@@ -9,6 +9,7 @@ alternate_country_capitals = dict(Hungary='Budapest', Sweden='Stockholm')
 print(f"Country Capital Dictionary: {country_capitals}")
 print(f"Alternate Country Capital Dictionary: {alternate_country_capitals}")
 
+# pass key into subscript notation [] and will get value as result
 print(f"UK Capital City: {country_capitals['UK']}")
 
 # add a key-value pair
@@ -59,6 +60,7 @@ print(f"Country Cities Dictionary: {country_cities}")
 fruit = {1: 'Apple', 2: 'Banana', 3: 'Cherries'}
 vegetables = {11: 'Tomatoes', 12: 'Carrots'}
 
+# 2 parameters, key and value
 for k, v in fruit.items():
     print(k, v)
 
@@ -66,6 +68,7 @@ for k, v in fruit.items():
 for k, v in vegetables.items():
     print(k, v)
 
+# update method - passing veg dict into fruit dict
 fruit.update(vegetables)
 
 for k, v in fruit.items():

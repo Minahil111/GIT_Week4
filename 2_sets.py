@@ -1,5 +1,5 @@
 # A set is an unordered container of object references
-# Set items are unique
+# Set items are unique - don't count duplicates
 fibonacci = {0, 1, 2, 3, 5, 8, 13, 21, 34}
 print(fibonacci)
 
@@ -67,16 +67,18 @@ print(f"Remaining colours: {remaining_colours}")
 
 
 print("\n" + "#" * 50)
+
 # set operators
 
 metallic_colours = {'black', 'gold', 'silver', 'grey', 'bronze'}
 print(f"Metallic colour set: {metallic_colours}")
 print(f"Standard colour set: {colours_set}")
 
-# intersection &
+# intersection - collects common items from both sets
 common_colours = colours_set.intersection(metallic_colours)
 print(f"Common colours in both sets: {common_colours}")
 
+# or can use & to do an intersection
 common_colours = colours_set & metallic_colours
 print(f"Common colours in both sets (using & operator): {common_colours}")
 
